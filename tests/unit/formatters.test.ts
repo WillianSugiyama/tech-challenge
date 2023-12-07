@@ -1,10 +1,10 @@
 import { Formatters } from '../../src/utils/formatters';
 
-/*
-  I'm using replace to trade the whitespace between the currency symbol and the value. it's a workaround with JEST.
-*/
-
 describe('Formatters', () => {
+  /*
+    I'm using replace to trade the whitespace between the currency symbol and the value. it's a workaround with JEST.
+  */
+
   describe('formatMoney', () => {
     it('should format a positive number as currency', () => {
       const value = 1000;
@@ -36,4 +36,12 @@ describe('Formatters', () => {
       expect(formattedValue.replace(/\s/, ' ')).toBe("R$ 1.000.000,00");
     });
   });
+
+  describe('formatDate', () => {
+    it('should format a date string to a Date object', () => {
+      const dateString = '20220101';
+      const formattedDate = Formatters.formatDate(dateString);
+      expect(formattedDate).toEqual(new Date(2022, 0, 1));
+    });
+  })
 });

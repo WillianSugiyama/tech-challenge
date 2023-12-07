@@ -19,6 +19,24 @@ export class Validate {
   }
 
   /**
+   * Validates if the given installment value is correct based on the total value and number of installments.
+   * 
+   * @param totalValue - The total value to be divided into installments.
+   * @param installmentsNumber - The number of installments.
+   * @param installmentValue - The expected value for each installment.
+   * @returns True if the installment value is correct, false otherwise.
+   */
+  public static validateValue(totalValue: number, installmentsNumber: number, installmentValue: number) {
+    const value = totalValue / installmentsNumber;
+
+    if(value !== installmentValue) {
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
    * Validates a CPF number.
    * @param number - The CPF number to validate.
    * @returns A boolean indicating whether the CPF number is valid or not.
