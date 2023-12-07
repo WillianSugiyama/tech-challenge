@@ -9,7 +9,9 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint --ignore-path .eslintignore . --ext .ts",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-    "dev": "nodemon ./src/main.ts"
+    "dev": "nodemon ./src/main.ts",
+    "build": "tsc",
+    "start": "node ./dist/main.js"
   },
   "keywords": [],
   "author": "",
@@ -43,7 +45,7 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "**/*.(t|j)s"
+      "**/*.ts"
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
