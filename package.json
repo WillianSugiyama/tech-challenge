@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint --ignore-path .eslintignore . --ext .ts",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
@@ -23,5 +24,27 @@
   },
   "dependencies": {
     "csv-parser": "^3.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": ".",
+    "testRegex": ".*tests/.*\\.test\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "moduleDirectories": [
+      "node_modules",
+      "src",
+      "tests"
+    ]
   }
 }
